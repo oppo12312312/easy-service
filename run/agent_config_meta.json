@@ -1,0 +1,302 @@
+{
+  "keys": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+  "middleware": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+  "mysql": {
+    "client": {
+      "host": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+      "port": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+      "user": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+      "password": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+      "database": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js"
+    },
+    "informationSchema": {
+      "host": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+      "port": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+      "user": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+      "password": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+      "database": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js"
+    },
+    "default": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+    "app": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js",
+    "agent": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/config/config.default.js"
+  },
+  "session": {
+    "maxAge": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
+    "key": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
+    "httpOnly": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js",
+    "encrypt": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-session@3.1.0@egg-session/config/config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+    "protocolWhiteList": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+    "csrf": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "useSession": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "ignoreJSON": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "cookieName": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "sessionName": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "headerName": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "bodyName": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "queryName": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "xframe": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "value": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "hsts": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.local.js",
+      "maxAge": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "includeSubdomains": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "dta": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "noopen": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "nosniff": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "value": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "xssProtection": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "value": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "csp": {
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "policy": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js",
+      "checkAddress": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-security@2.4.1@egg-security/config/config.default.js"
+  },
+  "jsonp": {
+    "limit": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-jsonp@2.0.0@egg-jsonp/config/config.default.js",
+    "callback": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-jsonp@2.0.0@egg-jsonp/config/config.default.js",
+    "csrf": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-jsonp@2.0.0@egg-jsonp/config/config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-onerror@2.1.0@egg-onerror/config/config.default.js",
+    "appErrorFilter": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-onerror@2.1.0@egg-onerror/config/config.default.js",
+    "templatePath": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-onerror@2.1.0@egg-onerror/config/config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js",
+    "dirs": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js",
+    "queryField": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js",
+    "cookieField": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js"
+  },
+  "watcher": {
+    "type": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.local.js",
+    "eventSources": {
+      "default": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.default.js",
+      "development": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-schedule@3.5.0@egg-schedule/config/config.default.js",
+      "file": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-schedule@3.5.0@egg-schedule/config/config.default.js"
+    }
+  },
+  "multipart": {
+    "mode": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "autoFields": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "fields": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "fileSize": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "files": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "fileExtensions": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "whitelist": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-multipart@2.3.0@egg-multipart/config/config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-development@2.4.1@egg-development/config/config.default.js",
+    "ignoreDirs": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-development@2.4.1@egg-development/config/config.default.js",
+    "fastReady": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-development@2.4.1@egg-development/config/config.default.js",
+    "reloadOnDebug": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-development@2.4.1@egg-development/config/config.default.js",
+    "overrideDefault": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-development@2.4.1@egg-development/config/config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-logrotator@3.0.5@egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-logrotator@3.0.5@egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-logrotator@3.0.5@egg-logrotator/config/config.default.js",
+    "maxFileSize": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-logrotator@3.0.5@egg-logrotator/config/config.default.js",
+    "maxFiles": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-logrotator@3.0.5@egg-logrotator/config/config.default.js",
+    "rotateDuration": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-logrotator@3.0.5@egg-logrotator/config/config.default.js",
+    "maxDays": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-logrotator@3.0.5@egg-logrotator/config/config.default.js"
+  },
+  "static": {
+    "prefix": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-static@2.1.1@egg-static/config/config.default.js",
+    "dir": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-static@2.1.1@egg-static/config/config.default.js",
+    "dynamic": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-static@2.1.1@egg-static/config/config.default.js",
+    "preload": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-static@2.1.1@egg-static/config/config.default.js",
+    "buffer": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-static@2.1.1@egg-static/config/config.default.js",
+    "maxFiles": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-static@2.1.1@egg-static/config/config.default.js"
+  },
+  "view": {
+    "root": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-view@2.1.0@egg-view/config/config.default.js",
+    "cache": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-view@2.1.0@egg-view/config/config.local.js",
+    "defaultExtension": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-view@2.1.0@egg-view/config/config.default.js",
+    "defaultViewEngine": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-view@2.1.0@egg-view/config/config.default.js",
+    "mapping": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg-view@2.1.0@egg-view/config/config.default.js"
+  },
+  "env": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "name": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "proxy": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "protocolHeaders": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "ipHeaders": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "hostHeaders": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "pkg": {
+    "name": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "version": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "description": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "private": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "dependencies": {
+      "egg": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "egg-mysql": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "egg-scripts": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "mongodb": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "mysql": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    },
+    "devDependencies": {
+      "autod": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "autod-egg": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "egg-bin": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "egg-ci": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "egg-mock": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "eslint": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "eslint-config-egg": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "webstorm-disable-index": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    },
+    "engines": {
+      "node": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    },
+    "scripts": {
+      "start": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "stop": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "dev": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "debug": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "test": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "test-local": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "cov": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "lint": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "ci": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "autod": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    },
+    "ci": {
+      "version": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    },
+    "repository": {
+      "type": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "url": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    },
+    "author": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "license": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+  },
+  "baseDir": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "HOME": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "rundir": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "dump": {
+    "ignore": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "notFound": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "sitefile": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "middlewares": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "httpClient": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+  },
+  "bodyParser": {
+    "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "encoding": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "formLimit": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "jsonLimit": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "strict": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "depth": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "parameterLimit": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "encoding": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "env": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "level": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "consoleLevel": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "disableConsoleAfterReady": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "outputJSON": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "buffer": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "appLogName": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "coreLogName": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "agentLogName": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "errorLogName": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.local.js"
+    },
+    "allowDebugAtProd": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "dnsCacheMaxLength": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "request": {
+      "timeout": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "maxSockets": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "maxFreeSockets": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "maxSockets": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "maxFreeSockets": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "logging": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+  },
+  "coreMiddleware": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "workerStartTimeout": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "serverTimeout": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "port": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+      "hostname": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js",
+    "responseTimeout": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+  },
+  "onClientError": "/Users/zhongshuai/Desktop/work/1-project/study/egg-example/node_modules/_egg@2.14.1@egg/config/config.default.js"
+}
