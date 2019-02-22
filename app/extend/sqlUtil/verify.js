@@ -23,7 +23,7 @@ module.exports = {
   verifySelect(tableName, where, columns, orders, pageNum, pageSize) {
     const all = { where, columns, orders, pageNum, pageSize };
     for (const key in all) {
-      if (this.valueType(all[key]) !== verifyType[key]) {
+      if (base.valueType(all[key]) !== verifyType[key]) {
         throw new Error(`${key}字段只能是(${verifyType[key]})类型`);
       }
     }
@@ -82,15 +82,6 @@ module.exports = {
       new Error(`${tableName}( ${lineTableName} ) :数据库中找不到这张表 `);
     }
   },
-  valueType(value) {
-    let type = typeof value;
-    if (type === 'object') {
-      if (!isNaN(value.length)) {
-        type = 'array';
-      }
-    }
-    return type;
 
-  },
 }
 ;
