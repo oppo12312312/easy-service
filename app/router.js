@@ -10,16 +10,16 @@ module.exports = app => {
   } = app;
   router.get('/', controller.home.index);
 
-  router.get('/query', controller.home.index);
+  router.post('/query', controller.home.index);
 
   app.beforeStart(async () => {
     const mysql = app.config.mysql;
     const informationSchema = app.mysql.createInstance(mysql.informationSchema);
     const database = mysql.client.database;
     const table = await informationSchema.query(` SELECT a.* FROM TABLES a where a.TABLE_SCHEMA = '${database}'`);
-    const field = await informationSchema.query(` SELECT a.* FROM COLUMNS a  WHERE a.TABLE_NAME in (SELECT a.TABLE_NAME   FROM TABLES a where a.TABLE_SCHEMA = '${database}')`);
-    app.dbInfoConfig = { table, field };
-    console.log(app.dbInfoConfig);
+    const column = await informationSchema.query(` SELECT a.* FROM COLUMNS a  WHERE a.TABLE_NAME in (SELECT a.TABLE_NAME   FROM TABLES a where a.TABLE_SCHEMA = '${database}')`);
+    app.dbInfoConfig = { table, column };
+    // console.log(app.dbInfoConfig);
   });
 
 

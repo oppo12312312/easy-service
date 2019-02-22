@@ -1,28 +1,27 @@
 
 'use strict';
-const param = {
-  // 比传入字段
-  tableName: 'test_table',
-  where: {
-    dateTime: { '>': 1550216377, '=<': 1550216377 },
-    enum: [ 1, 11 ],
-    text: { like: 'adf' },
-    id: 1,
-  },
-  // 不传查询所有
-  columns: [ 'enum', 'text' ],
-  // 可以不传
-  orders: [{ desc: 'id' }],
-  pageNum: 1,
-  pageSize: 10,
-};
+const base = require('./base');
+const dbInfo = require('./dbInfo');
+const verify = require('./verify');
+
+
+const otherName = 'a';
 
 
 module.exports = {
-  // getSelectSql(tableName, where = {}, columns = [], orders = [], pageNum = 0, pageSize = 0) {
-
-
-  // },
+  ...dbInfo,
+  getSelectSql(tableName, where = {}, columns = [], orders = [], pageNum = 0, pageSize = 0) {
+    verify.verifySelect(tableName, where, columns, orders, pageNum, pageSize);
+    const sqlTableName = base.getSqlTableName(tableName);
+    if (columns.length === 0) {
+      // 不传入columns 则查询表中的所有字段
+      columns = base.getAllColumn();
+    }
+    const sqlColumns = base.getSqlColumnQuery(columns, otherName);
+    const sqlWhere = base.getSqlWhere(where, otherName);
+    const sqlOrder = base.getSqlOrders(orders, otherName);
+    return `select ${sqlColumns} from ${sqlTableName} where ${sqlWhere} ${sqlOrder}`;
+  },
   // getUpdateSql(tableName, data, where) {
 
   // },
@@ -32,7 +31,4 @@ module.exports = {
   // getInsetSql(tableName, data) {
 
   // },
-  foo() {
-    // throw new Error('找不到表');
-  },
 };
