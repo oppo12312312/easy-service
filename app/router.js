@@ -1,4 +1,5 @@
 'use strict';
+const dbInfo = require('./extend/sqlUtil/dbInfo');
 
 /**
  * @param {Egg.Application} app - egg application
@@ -18,8 +19,8 @@ module.exports = app => {
     const database = mysql.client.database;
     const table = await informationSchema.query(` SELECT a.* FROM TABLES a where a.TABLE_SCHEMA = '${database}'`);
     const column = await informationSchema.query(` SELECT a.* FROM COLUMNS a  WHERE a.TABLE_NAME in (SELECT a.TABLE_NAME   FROM TABLES a where a.TABLE_SCHEMA = '${database}')`);
-    app.dbInfoConfig = { table, column };
-    // console.log(app.dbInfoConfig);
+    dbInfo.setDbInfoConfig({ table, column });
+    console.log({ table, column });
   });
 
 

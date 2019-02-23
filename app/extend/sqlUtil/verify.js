@@ -11,6 +11,7 @@ const descAsc = [ 'desc', 'asc' ];
 const dbInfo = require('./dbInfo');
 const base = require('./base');
 module.exports = {
+
   /**
    * select 传入值的校验
    * @param {String} tableName   tableName
@@ -28,9 +29,27 @@ module.exports = {
       }
     }
     this.verifyTableName(tableName);
-    this.verifyWhere(where);
-    this.verifyColumns(columns);
-    this.verifyOrders(orders);
+    this.verifyWhere(tableName, where);
+    this.verifyColumns(tableName, columns);
+    this.verifyOrders(tableName, orders);
+    this.verifyPage(pageNum, pageSize);
+  },
+  /**
+   * 校验SelectParam参数
+   * @param {Object} param SelectParam
+   */
+  verifySelectParam(param) {
+    if (base.valueType(param) !== 'object') {
+      throw new Error('select的param参数必须是一个object');
+    }
+    if (!param.tableName) {
+      throw new Error('select的param中必须包含tableName字段');
+    }
+  },
+  verifyColumns(tableName, columns) {
+    columns.forEach(attr => {
+      this.verifyColumn(tableName, attr, 'columns');
+    });
   },
   /**
    * where 传入值的校验
@@ -69,7 +88,7 @@ module.exports = {
     const lineTableName = base.toLine(tableName);
     const lineKey = base.toLine(column);
     if (!dbInfo.getColumnExist(lineTableName, lineKey)) {
-      throw new Error(`${type}中的 ${column}(${lineKey}) 在表 ${tableName}(${lineTableName}) 中不存在，请检查`);
+      throw new Error(`${type}中的 ${column}(${lineKey}) 在表 ${tableName}(${lineTableName}) 中不存在`);
     }
   },
   /**
@@ -82,6 +101,18 @@ module.exports = {
       new Error(`${tableName}( ${lineTableName} ) :数据库中找不到这张表 `);
     }
   },
+  /**
+   * 校验 pageNum，pageSize
+   * @param {number} pageNum  大于0
+   * @param {number} pageSize  大于0
+   */
+  verifyPage(pageNum, pageSize) {
+    const page = { pageNum, pageSize };
+    for (const key in page) {
+      if (base.valueType(page[key]) !== 'number' || !/^\d+$/.test(page[key] + '') || page[key] < 1) {
+        new Error(`${key}必须是大于0的整数`);
+      }
+    }
+  },
 
-}
-;
+};

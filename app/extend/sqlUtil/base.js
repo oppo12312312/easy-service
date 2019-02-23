@@ -5,38 +5,44 @@ const dbInfo = require('./dbInfo');
 module.exports = {
   /**
    * 通过字段数组获取查询sql的column
+   * @param {String} tableName 别名
    * @param {Array} columns 字段
    * @param {String} otherName 别名
    * @return {String}  拼接的sql
    */
-  getSqlColumnQuery(columns, otherName) {
+  getSqlColumnQuery(tableName, columns, otherName) {
     let tempName = '';
     const arrColumns = [];
+    const lintTableName = this.toLine(tableName);
     columns.forEach(att => {
       if (att.indexOf('_') > 0) {
         tempName = this.toHump(att);
-        arrColumns.push(`${otherName}.\`${att}\` ${tempName}`);
+        const dbName = dbInfo.getColumn(lintTableName, att);
+        arrColumns.push(`${otherName}.\`${dbName}\` ${tempName}`);
       } else {
-        arrColumns.push(`${otherName}.\`${tempName}\` ${att}`);
+        tempName = this.toLine(att);
+        const dbName = dbInfo.getColumn(lintTableName, att);
+        arrColumns.push(`${otherName}.\`${dbName}\` ${att}`);
       }
     });
-    return columns.join(' ,');
+    return arrColumns.join(' ,');
 
   },
   /**
    * 通过where对象获取whereSql查询语句
-   * @param {*} where wehre object
-   * @param {*} tableName 表名称
-   * @param {*} otherName 表别名
+   * @param {String} tableName 表名称
+   * @param {Object} where wehre object
+   * @param {String} otherName 表别名
+   * @return {String} wheresql
    */
-  getSqlWhere(where, tableName, otherName) {
+  getSqlWhere(tableName, where, otherName) {
     const example = {
       // 比传入字段
       tableName: 'test_table',
       where: {
         dateTime: { '>': 1550216377, '=<': 1550216377 },
         enum: [ 1, 11 ],
-        text: { like: 'adf' },
+        text: { like: '%adf%' },
         id: 1,
       },
       // 不传查询所有
@@ -48,11 +54,13 @@ module.exports = {
     };
     example;
     const wheres = [];
+    const lintTableName = this.toLine(tableName);
     for (const key in where) {
       const values = where[key];
       const column = this.toLine(key);
+      const dcColumn = dbInfo.getColumn(lintTableName, column);
       const type = typeof values;
-      const columnSql = `${otherName}.\`${column}\``;
+      const columnSql = `${otherName}.\`${dcColumn}\``;
       switch (type) {
         case 'number':
           wheres.push(`${columnSql} = ${values}`);
@@ -74,7 +82,7 @@ module.exports = {
           } else {
             for (const ckey in values) {
               if (typeof values[ckey] === 'number') {
-                if (dbInfo.isDateTime(tableName, key)) {
+                if (dbInfo.isDateTime(lintTableName, key)) {
                   wheres.push(`unix_timestamp(${columnSql})  ${ckey} ${values[ckey]}`);
                 } else {
                   wheres.push(`${columnSql}  ${ckey} ${values[ckey]}`);
@@ -89,34 +97,40 @@ module.exports = {
         default:
 
       }
-
     }
+    return wheres.join(' and ');
   },
   /**
    * 拼接orders sql
+   * @param {String} tableName  tableName
    * @param {Object} orders  orders
    * @param {String} otherName otherName
    * @return {String} 拼接orders sql
    */
-  getSqlOrders(orders, otherName) {
+  getSqlOrders(tableName, orders, otherName) {
     let sqlOrders = '';
     const sqlOrdersArr = [];
+    console.log(orders);
     for (const key in orders) {
-      sqlOrdersArr.push(`${otherName}.\`${this.toLine(key)}\` + ' ' + ${orders[key]}`);
+      const dbColumn = dbInfo.getColumn(this.toLine(tableName), this.toLine(key));
+      sqlOrdersArr.push(`${otherName}.\`${dbColumn}\`  ${orders[key]}`);
     }
     if (sqlOrdersArr.length > 0) {
       sqlOrders = 'order by ' + sqlOrdersArr.join(', ');
     }
+    console.log(sqlOrders);
     return sqlOrders;
   },
   /**
    * 获取下划线的表名称
    * @param {String} tableName 驼峰法的表名称
+   * @param {String} otherName otherName
    * @return {String} 下划线表名称
    */
-  getSqlTableName(tableName) {
+  getSqlTableName(tableName, otherName) {
     const name = this.toLine(tableName);
-    return `'${name}'`;
+    const dbName = dbInfo.getTableName(name);
+    return `${otherName}.\`${dbName}\``;
 
   },
   /**
@@ -125,6 +139,7 @@ module.exports = {
    * @return {string} hump
    */
   toHump(name) {
+    name = name.toLowerCase();
     return name.replace(/\_(\w)/g, function(all, letter) {
       return letter.toUpperCase();
     });
@@ -135,8 +150,17 @@ module.exports = {
    * @return {string} 下划线字段
    */
   toLine(name) {
-    return name.replace(/([A-Z])/g, '_$1').toLowerCase();
+    return name.replace(/([A-Z])/g, '_$1').toUpperCase();
   },
+  getPage(pageNum, pageSize) {
+    const page = (pageNum - 1) * pageSize;
+    return `limit ${page} , ${pageSize}`;
+  },
+  /**
+   * 判断值的类型
+   * @param {*} value 一个任意类型
+   * @return {String} 类型
+   */
   valueType(value) {
     let type = typeof value;
     if (type === 'object') {

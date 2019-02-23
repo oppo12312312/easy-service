@@ -2,6 +2,7 @@
 const dbTableName = 'TABLE_NAME';
 const dbColumnName = 'COLUMN_NAME';
 const dbDataType = 'DATA_TYPE';
+let dbInfoConfig = {};
 
 module.exports = {
   /**
@@ -12,15 +13,14 @@ module.exports = {
    */
   getColumnType(tableName, columnName) {
     let dataType = '';
-    const columnCfg = this.dbInfoConfig.column;
+    const columnCfg = dbInfoConfig.column;
     columnCfg.forEach(attr => {
-      if (attr[dbTableName] === tableName && attr[dbColumnName] === columnName) {
+      if (attr[dbTableName].toUpperCase() === tableName.toUpperCase() && attr[dbColumnName].toUpperCase() === columnName.toUpperCase()) {
         dataType = attr[dbDataType];
         return dataType;
       }
     });
     return dataType;
-
   },
   /**
    * 判断字段在表中是否存在
@@ -29,7 +29,7 @@ module.exports = {
    * @return {boolean} 是否存在字段
    */
   getColumnExist(tableName, columnName) {
-    return this.getColumnType(tableName, columnName) === '';
+    return !(this.getColumnType(tableName, columnName) === '');
   },
   /**
    * 返回表是否存在
@@ -37,14 +37,18 @@ module.exports = {
    * @return {boolean} 是否存在表
    */
   getTableNameExist(tableName) {
-    let result = false;
-    const tableCfg = this.dbInfoConfig.table;
-    tableCfg.forEach(attr => {
-      if (attr[dbTableName] === tableName) {
-        result = true;
-        return result;
+    return !(this.getTableName(tableName) === '');
+  },
+  getTableName(tableName) {
+    let result = '';
+    const tableCfg = dbInfoConfig.table;
+    for (let i = 0; i < tableCfg.length; i++) {
+      const attr = tableCfg[i];
+      if (attr[dbTableName].toUpperCase() === tableName.toUpperCase()) {
+        result = attr[dbTableName];
+        break;
       }
-    });
+    }
     return result;
   },
   /**
@@ -54,13 +58,25 @@ module.exports = {
    */
   getAllColumn(tableName) {
     const columns = [];
-    const columnCfg = this.dbInfoConfig.column;
+    const columnCfg = dbInfoConfig.column;
     columnCfg.forEach(attr => {
-      if (attr[dbTableName] === tableName) {
+      if (attr[dbTableName].toUpperCase() === tableName.toUpperCase()) {
         columns.push(attr[dbColumnName]);
       }
     });
     return columns;
+  },
+  getColumn(tableName, colnum) {
+    let dbCloumn = '';
+    const columns = this.getAllColumn(tableName);
+    for (let i = 0; i < columns.length; i++) {
+      const att = columns[i];
+      if (att.toUpperCase() === colnum.toUpperCase()) {
+        dbCloumn = att;
+        break;
+      }
+    }
+    return dbCloumn;
   },
   /**
      * 是否是时间格式
@@ -70,6 +86,9 @@ module.exports = {
      */
   isDateTime(tableName, columnName) {
     return this.getColumnType(tableName, columnName).indexOf('date') > -1;
+  },
+  setDbInfoConfig(value) {
+    dbInfoConfig = value;
   },
 
 };

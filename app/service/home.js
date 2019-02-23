@@ -3,7 +3,10 @@ const Service = require('egg').Service;
 
 class home extends Service {
   async list() {
-    const test = await this.app.mysql.query('SELECT * FROM test  ');
+    const param = this.ctx.request.body;
+    const sql = this.app.getSelectSqlByParam(param);
+    console.log(sql);
+    // const test = await this.app.mysql.query(sql);
     // console.log(this.ctx.req.payload);
     // console.log(this.ctx);
     // console.log(this.ctx.params);
@@ -19,7 +22,7 @@ class home extends Service {
 
     // this.app.foo();
     console.log(this.ctx.request.body);
-    return test;
+    return sql;
   }
 }
 
