@@ -2,9 +2,24 @@
 const dbTableName = 'TABLE_NAME';
 const dbColumnName = 'COLUMN_NAME';
 const dbDataType = 'DATA_TYPE';
+const dbDataTypes = {
+  number: [ 'tinyint', 'smallint', 'mediumint', 'int', 'bigint', 'float', 'double' ],
+  string: [ 'char', 'varchar', 'tinytext', 'text', 'mediumtext', 'longtext' ],
+  dateTime: [ 'dateTime', 'time', 'date' ],
+  dateTimeFormat: {
+    dateTime: '\'%Y-%m-%d %H:%i:%s\'',
+    time: '\'%H:%i:%s\'',
+    date: '\'%Y-%m-%d\'',
+  },
+};
+const sqlKeys = [ '=', '!=', '>', '>=', '<', '<=', 'between', 'not between', 'like', 'is', 'in' ];
+const descAsc = [ 'desc', 'asc' ];
 let dbInfoConfig = {};
 
 module.exports = {
+  dbDataTypes,
+  sqlKeys,
+  descAsc,
   /**
    * 查询字段的类型
    * @param {String} tableName 表名称
