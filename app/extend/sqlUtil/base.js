@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: zhongshuai
+ * @LastEditors: zhongshuai
+ * @Date: 2019-02-20 16:37:13
+ * @LastEditTime: 2019-03-29 17:32:55
+ */
 
 'use strict';
 const example = {
@@ -48,7 +55,6 @@ module.exports = {
   getSqlColumnQuery(tableName, columns, otherName) {
     const arrColumns = [];
     const lintTableName = this.toLine(tableName);
-    console.log(columns);
     columns.forEach(att => {
       const lintColumn = this.toLine(att);
       const dbName = dbInfo.getColumn(lintTableName, lintColumn);
@@ -57,7 +63,11 @@ module.exports = {
       let col = `${otherName}.\`${dbName}\``;
       for (const key in types.dateTimeFormat) {
         if (dbType === key) {
-          col = `date_format(${col}, ${types.dateTimeFormat[key]})`;
+          if (types.timeType === 'string') {
+            col = `date_format(${col}, ${types.dateTimeFormat[key]})`;
+          } else {
+            col = `unix_timestamp(${col})`;
+          }
         }
       }
       arrColumns.push(`${col} ${att}`);
@@ -72,7 +82,6 @@ module.exports = {
    * @return {String} wheresql
    */
   getSqlWhere(where, otherName, tableName = '') {
-
     const wheres = [];
     const lintTableName = this.toLine(tableName);
     for (const key in where) {
@@ -131,15 +140,19 @@ module.exports = {
     let result = '';
     result = value;
     const types = dbInfo.dbDataTypes;
-    if (dbType.indexOf(types.string) > -1) {
+    if (types.string.indexOf(dbType) > -1) {
       result = `'${value}'`;
     }
-    for (const key in types.dateTimeFormat) {
+    types.dateTime.forEach(key => {
       if (dbType === key) {
-        result = `str_to_date('${value}', ${types.dateTimeFormat[key]})`;
-        break;
+        if (types.timeType === 'string') {
+          result = `str_to_date('${value}', ${types.dateTimeFormat[key]})`;
+        } else {
+          result = `from_unixtime(${value})`;
+        }
+
       }
-    }
+    });
     return result;
 
   },
@@ -172,6 +185,19 @@ module.exports = {
     const name = this.toLine(tableName);
     const dbName = dbInfo.getTableName(name);
     return `\`${dbName}\` ${otherName}`;
+
+  },
+  getSqlSet(data, tableName, otherName) {
+    const lintTableName = this.toLine(tableName);
+    const setValueArr = [];
+    for (const key in data) {
+      const lineColumn = this.toLine(key);
+      const dbType = dbInfo.getColumnType(lintTableName, lineColumn);
+      const dbColumn = dbInfo.getColumn(lintTableName, key);
+      const sqlValue = this.getSqlValue(data[key], dbType);
+      setValueArr.push(`${otherName}.\`${dbColumn}\` = ${sqlValue}`);
+    }
+    return setValueArr.join(',');
 
   },
   /**

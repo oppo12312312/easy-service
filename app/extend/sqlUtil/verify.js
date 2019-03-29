@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-22 17:41:54
- * @LastEditTime: 2019-03-11 16:09:03
+ * @LastEditTime: 2019-03-29 18:15:10
  */
 'use strict';
 const verifyType = {
@@ -41,12 +41,14 @@ module.exports = {
   verifyUpdate(tableName, data, where) {
     const all = { tableName, where, updateData: data };
     this.verifyDataType(all);
-    this.verifyWhere(tableName, where);
-    this.verifyUpdateData(tableName, data);
+    this.verifyTableName(tableName);
+    this.verifyWhere(where, tableName);
+    this.verifyUpdateData(data, tableName);
   },
-  verifyUpdateData(tableName, data) {
+  verifyUpdateData(data, tableName) {
     for (const key in data) {
       this.verifyColumn(tableName, key, 'data');
+      this.verifyValue(tableName, key, data[key]);
     }
   },
   verifyDataType(value) {
@@ -66,6 +68,24 @@ module.exports = {
     }
     if (!param.tableName) {
       throw new Error('select的param中必须包含tableName字段');
+    }
+  },
+  /**
+   * 校验SelectParam参数
+   * @param {Object} param SelectParam
+   */
+  verifyUpdateParam(param) {
+    if (base.valueType(param) !== 'object') {
+      throw new Error('Update的param参数必须是一个object');
+    }
+    if (!param.tableName) {
+      throw new Error('Update的param中必须包含tableName字段');
+    }
+    if (!param.where) {
+      throw new Error('Update的param中必须包含where字段');
+    }
+    if (!param.data) {
+      throw new Error('Update的param中必须包含tableName字段');
     }
   },
   // verifyUpdateData(data) {
@@ -148,8 +168,8 @@ module.exports = {
    */
   verifyTableName(tableName) {
     const lineTableName = base.toLine(tableName);
-    if (!dbInfo.getTableNameExist(tableName)) {
-      new Error(`${tableName}( ${lineTableName} ) :数据库中找不到这张表 `);
+    if (!dbInfo.getTableNameExist(lineTableName)) {
+      throw new Error(`${tableName}( ${lineTableName} ) :数据库中找不到这张表 `);
     }
   },
   /**
@@ -161,7 +181,7 @@ module.exports = {
     const page = { pageNum, pageSize };
     for (const key in page) {
       if (base.valueType(page[key]) !== 'number' || !/^\d+$/.test(page[key] + '') || page[key] < 1) {
-        new Error(`${key}必须是大于0的整数`);
+        throw new Error(`${key}必须是大于0的整数`);
       }
     }
   },
@@ -172,11 +192,15 @@ module.exports = {
     const valueType = base.valueType(value);
     const columnType = dbInfo.getColumnType(lineTableName, lineKey);
     const types = dbInfo.dbDataTypes;
+    console.log(value);
+    console.log(valueType);
+    console.log(columnType);
+    console.log(((types.string.indexOf(columnType) > -1) && valueType !== 'string'));
     if (types.number.indexOf(columnType) > -1 && valueType !== 'number') {
-      new Error(`${info} 必须是数字类型`);
+      throw new Error(`${info} 必须是数字类型`);
     }
-    if ((types.string.indexOf(columnType) > -1 || types.dateTime.indexOf(columnType) > -1) && valueType !== 'string') {
-      new Error(`${info} 必须是字符串类型`);
+    if ((types.string.indexOf(columnType) > -1) && valueType !== 'string') {
+      throw new Error(`${info} 必须是字符串类型`);
     }
   },
 

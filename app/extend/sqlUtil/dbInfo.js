@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: zhongshuai
+ * @LastEditors: zhongshuai
+ * @Date: 2019-02-20 16:36:39
+ * @LastEditTime: 2019-03-25 17:24:27
+ */
 'use strict';
 const dbTableName = 'TABLE_NAME';
 const dbColumnName = 'COLUMN_NAME';
@@ -5,9 +12,10 @@ const dbDataType = 'DATA_TYPE';
 const dbDataTypes = {
   number: [ 'tinyint', 'smallint', 'mediumint', 'int', 'bigint', 'float', 'double' ],
   string: [ 'char', 'varchar', 'tinytext', 'text', 'mediumtext', 'longtext' ],
-  dateTime: [ 'dateTime', 'time', 'date' ],
+  dateTime: [ 'datetime', 'time', 'date' ],
+  timeType: 'unit', // "string or unit"
   dateTimeFormat: {
-    dateTime: '\'%Y-%m-%d %H:%i:%s\'',
+    datetime: '\'%Y-%m-%d %H:%i:%s\'',
     time: '\'%H:%i:%s\'',
     date: '\'%Y-%m-%d\'',
   },

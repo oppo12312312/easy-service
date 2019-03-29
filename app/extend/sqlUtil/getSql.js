@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-20 14:03:16
- * @LastEditTime: 2019-03-11 16:08:40
+ * @LastEditTime: 2019-03-29 17:32:28
  */
 
 'use strict';
@@ -36,13 +36,16 @@ module.exports = {
     return `select ${sqlColumns} from ${sqlTableName} where ${sqlWhere} ${sqlOrder} ${sqlPage}`;
   },
   getUpdateSqlByParam(param) {
-    verify.verifySelectParam(param);
-    verify.verifyUpdataData(param.data);
+    verify.verifyUpdateParam(param);
     return this.getUpdateSql(param.tableName, param.data || [], param.where || {});
   },
-  // getUpdateSql(tableName, data, where) {
-
-  // },
+  getUpdateSql(tableName, data, where) {
+    verify.verifyUpdate(tableName, data, where);
+    const sqlTableName = base.getSqlTableName(tableName, otherName);
+    const sqlSet = base.getSqlSet(data, tableName, otherName);
+    const sqlWhere = base.getSqlWhere(where, otherName, tableName);
+    return `update ${sqlTableName} set ${sqlSet}  where ${sqlWhere}`;
+  },
   // getDeleteSql(tableName, where) {
 
   // },
