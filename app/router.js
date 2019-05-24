@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2018-12-13 17:49:58
- * @LastEditTime: 2019-03-29 17:25:19
+ * @LastEditTime: 2019-04-07 19:26:15
  */
 'use strict';
 const dbInfo = require('./extend/sqlUtil/dbInfo');
@@ -21,6 +21,8 @@ module.exports = app => {
   router.post('/query', controller.home.index);
 
   router.post('/update', controller.home.update);
+
+  router.get('/eventSource', controller.test.eventSource);
 
   app.beforeStart(async () => {
     const mysql = app.config.mysql;

@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-22 17:41:54
- * @LastEditTime: 2019-03-29 18:15:10
+ * @LastEditTime: 2019-03-29 18:16:45
  */
 'use strict';
 const verifyType = {
@@ -192,10 +192,6 @@ module.exports = {
     const valueType = base.valueType(value);
     const columnType = dbInfo.getColumnType(lineTableName, lineKey);
     const types = dbInfo.dbDataTypes;
-    console.log(value);
-    console.log(valueType);
-    console.log(columnType);
-    console.log(((types.string.indexOf(columnType) > -1) && valueType !== 'string'));
     if (types.number.indexOf(columnType) > -1 && valueType !== 'number') {
       throw new Error(`${info} 必须是数字类型`);
     }
