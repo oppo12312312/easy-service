@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2018-12-13 17:49:58
- * @LastEditTime: 2019-04-07 19:26:15
+ * @LastEditTime: 2019-05-24 18:01:40
  */
 'use strict';
 const dbInfo = require('./extend/sqlUtil/dbInfo');
@@ -16,11 +16,16 @@ module.exports = app => {
     router,
     controller,
   } = app;
-  router.get('/', controller.home.index);
+  router.get('/', controller.home.query);
 
-  router.post('/query', controller.home.index);
+  router.post('/query', controller.home.query);
 
   router.post('/update', controller.home.update);
+
+  router.post('/inset', controller.home.inset);
+
+  router.post('/delete', controller.home.delete);
+
 
   router.get('/eventSource', controller.test.eventSource);
 

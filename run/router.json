@@ -39,6 +39,30 @@
   {
     "name": null,
     "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/inset",
+    "regexp": "/^\\/inset(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/delete",
+    "regexp": "/^\\/delete(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
       "HEAD",
       "GET"
     ],

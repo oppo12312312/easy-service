@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-20 16:37:13
- * @LastEditTime: 2019-03-29 17:32:55
+ * @LastEditTime: 2019-05-24 16:29:36
  */
 
 'use strict';
@@ -71,6 +71,17 @@ module.exports = {
         }
       }
       arrColumns.push(`${col} ${att}`);
+    });
+    return arrColumns.join(' ,');
+  },
+  getSqlColumnInset(tableName, columns) {
+    const arrColumns = [];
+    const lintTableName = this.toLine(tableName);
+    columns.forEach(att => {
+      const lintColumn = this.toLine(att);
+      const dbName = dbInfo.getColumn(lintTableName, lintColumn);
+      const col = `\`${dbName}\``;
+      arrColumns.push(col);
     });
     return arrColumns.join(' ,');
   },
@@ -184,8 +195,8 @@ module.exports = {
   getSqlTableName(tableName, otherName) {
     const name = this.toLine(tableName);
     const dbName = dbInfo.getTableName(name);
-    return `\`${dbName}\` ${otherName}`;
-
+    const re = otherName ? `\`${dbName}\` ${otherName}` : `\`${dbName}\``;
+    return re;
   },
   getSqlSet(data, tableName, otherName) {
     const lintTableName = this.toLine(tableName);
@@ -198,7 +209,31 @@ module.exports = {
       setValueArr.push(`${otherName}.\`${dbColumn}\` = ${sqlValue}`);
     }
     return setValueArr.join(',');
+  },
+  getSqlValuesInset(data, tableName) {
+    const lintTableName = this.toLine(tableName);
+    const setValueArr = [];
+    dbInfo.getColumnExist(lintTableName, 'id');
+    setValueArr.push('UUID()');
+    for (const key in data) {
+      const lineColumn = this.toLine(key);
+      const dbType = dbInfo.getColumnType(lintTableName, lineColumn);
+      const sqlValue = this.getSqlValue(data[key], dbType);
+      setValueArr.push(sqlValue);
+    }
 
+    return setValueArr.join(',');
+  },
+  getColumnsByData(data, tableName) {
+    const lintTableName = this.toLine(tableName);
+    const columns = [];
+    if (dbInfo.getColumnExist(lintTableName, 'id')) {
+      columns.push('id');
+    }
+    for (const key in data) {
+      columns.push(key);
+    }
+    return columns;
   },
   /**
    * 下划线转驼峰

@@ -40,7 +40,7 @@
       "value": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-security@2.4.3@egg-security/config/config.default.js"
     },
     "hsts": {
-      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-security@2.4.3@egg-security/config/config.local.js",
+      "enable": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-security@2.4.3@egg-security/config/config.default.js",
       "maxAge": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-security@2.4.3@egg-security/config/config.default.js",
       "includeSubdomains": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-security@2.4.3@egg-security/config/config.default.js"
     },
@@ -104,7 +104,7 @@
     "cookieMaxAge": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-i18n@2.0.0@egg-i18n/config/config.default.js"
   },
   "watcher": {
-    "type": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.local.js",
+    "type": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.default.js",
     "eventSources": {
       "default": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.default.js",
       "development": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-watcher@3.1.0@egg-watcher/config/config.default.js"
@@ -135,13 +135,6 @@
       "cron": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-multipart@2.4.0@egg-multipart/config/config.default.js"
     }
   },
-  "development": {
-    "watchDirs": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js",
-    "ignoreDirs": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js",
-    "fastReady": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js",
-    "reloadOnDebug": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js",
-    "overrideDefault": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-development@2.4.2@egg-development/config/config.default.js"
-  },
   "logrotator": {
     "filesRotateByHour": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-logrotator@3.0.5@egg-logrotator/config/config.default.js",
     "hourDelimiter": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-logrotator@3.0.5@egg-logrotator/config/config.default.js",
@@ -156,12 +149,13 @@
     "dir": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
     "dynamic": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
     "preload": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
-    "buffer": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
-    "maxFiles": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js"
+    "buffer": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-static@2.2.0@egg-static/config/config.prod.js",
+    "maxFiles": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-static@2.2.0@egg-static/config/config.default.js",
+    "maxAge": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-static@2.2.0@egg-static/config/config.prod.js"
   },
   "view": {
     "root": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-view@2.1.2@egg-view/config/config.default.js",
-    "cache": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-view@2.1.2@egg-view/config/config.local.js",
+    "cache": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-view@2.1.2@egg-view/config/config.default.js",
     "defaultExtension": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-view@2.1.2@egg-view/config/config.default.js",
     "defaultViewEngine": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-view@2.1.2@egg-view/config/config.default.js",
     "mapping": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-view@2.1.2@egg-view/config/config.default.js"
@@ -264,9 +258,7 @@
     "coreLogName": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg@2.16.2@egg/config/config.default.js",
     "agentLogName": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg@2.16.2@egg/config/config.default.js",
     "errorLogName": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg@2.16.2@egg/config/config.default.js",
-    "coreLogger": {
-      "consoleLevel": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg@2.16.2@egg/config/config.local.js"
-    },
+    "coreLogger": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg@2.16.2@egg/config/config.default.js",
     "allowDebugAtProd": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg@2.16.2@egg/config/config.default.js"
   },
   "httpclient": {

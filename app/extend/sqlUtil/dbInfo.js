@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-20 16:36:39
- * @LastEditTime: 2019-03-25 17:24:27
+ * @LastEditTime: 2019-05-24 14:31:58
  */
 'use strict';
 const dbTableName = 'TABLE_NAME';
@@ -30,15 +30,15 @@ module.exports = {
   descAsc,
   /**
    * 查询字段的类型
-   * @param {String} tableName 表名称
+   * @param {String} lineTableName 表名称
    * @param {String} columnName 字段名称
    * @return {String} dataType 字段类型
    */
-  getColumnType(tableName, columnName) {
+  getColumnType(lineTableName, columnName) {
     let dataType = '';
     const columnCfg = dbInfoConfig.column;
     columnCfg.forEach(attr => {
-      if (attr[dbTableName].toUpperCase() === tableName.toUpperCase() && attr[dbColumnName].toUpperCase() === columnName.toUpperCase()) {
+      if (attr[dbTableName].toUpperCase() === lineTableName.toUpperCase() && attr[dbColumnName].toUpperCase() === columnName.toUpperCase()) {
         dataType = attr[dbDataType];
         return dataType;
       }
@@ -47,27 +47,27 @@ module.exports = {
   },
   /**
    * 判断字段在表中是否存在
-   * @param {String} tableName 表名称
+   * @param {String} lineTableName 表名称
    * @param {String} columnName 字段名称
    * @return {boolean} 是否存在字段
    */
-  getColumnExist(tableName, columnName) {
-    return !(this.getColumnType(tableName, columnName) === '');
+  getColumnExist(lineTableName, columnName) {
+    return !(this.getColumnType(lineTableName, columnName) === '');
   },
   /**
    * 返回表是否存在
-   * @param {string} tableName  表名称
+   * @param {string} lineTableName  表名称
    * @return {boolean} 是否存在表
    */
-  getTableNameExist(tableName) {
-    return !(this.getTableName(tableName) === '');
+  getTableNameExist(lineTableName) {
+    return !(this.getTableName(lineTableName) === '');
   },
-  getTableName(tableName) {
+  getTableName(lineTableName) {
     let result = '';
     const tableCfg = dbInfoConfig.table;
     for (let i = 0; i < tableCfg.length; i++) {
       const attr = tableCfg[i];
-      if (attr[dbTableName].toUpperCase() === tableName.toUpperCase()) {
+      if (attr[dbTableName].toUpperCase() === lineTableName.toUpperCase()) {
         result = attr[dbTableName];
         break;
       }
@@ -76,22 +76,22 @@ module.exports = {
   },
   /**
    * 某一个表中所有的字段
-   * @param {string} tableName  表名称
+   * @param {string} lineTableName  表名称
    * @return {Array} 字段数组
    */
-  getAllColumn(tableName) {
+  getAllColumn(lineTableName) {
     const columns = [];
     const columnCfg = dbInfoConfig.column;
     columnCfg.forEach(attr => {
-      if (attr[dbTableName].toUpperCase() === tableName.toUpperCase()) {
+      if (attr[dbTableName].toUpperCase() === lineTableName.toUpperCase()) {
         columns.push(attr[dbColumnName]);
       }
     });
     return columns;
   },
-  getColumn(tableName, colnum) {
+  getColumn(lineTableName, colnum) {
     let dbCloumn = '';
-    const columns = this.getAllColumn(tableName);
+    const columns = this.getAllColumn(lineTableName);
     for (let i = 0; i < columns.length; i++) {
       const att = columns[i];
       if (att.toUpperCase() === colnum.toUpperCase()) {
@@ -103,12 +103,12 @@ module.exports = {
   },
   /**
      * 是否是时间格式
-     * @param {String} tableName 表名称
+     * @param {String} lineTableName 表名称
      * @param {String} columnName 字段名称
      * @return {String} 是否是时间格式
      */
-  isDateTime(tableName, columnName) {
-    return this.getColumnType(tableName, columnName).indexOf('date') > -1;
+  isDateTime(lineTableName, columnName) {
+    return this.getColumnType(lineTableName, columnName).indexOf('date') > -1;
   },
   setDbInfoConfig(value) {
     dbInfoConfig = value;

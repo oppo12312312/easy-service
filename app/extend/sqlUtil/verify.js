@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-22 17:41:54
- * @LastEditTime: 2019-03-29 18:16:45
+ * @LastEditTime: 2019-05-24 18:06:22
  */
 'use strict';
 const verifyType = {
@@ -45,6 +45,14 @@ module.exports = {
     this.verifyWhere(where, tableName);
     this.verifyUpdateData(data, tableName);
   },
+  verifyInset(tableName, data, columns) {
+    const all = { tableName, columns, updateData: data };
+    this.verifyDataType(all);
+    this.verifyTableName(tableName);
+    this.verifyColumns(tableName, columns);
+    this.verifyUpdateData(data, tableName);
+  },
+
   verifyUpdateData(data, tableName) {
     for (const key in data) {
       this.verifyColumn(tableName, key, 'data');
@@ -85,13 +93,37 @@ module.exports = {
       throw new Error('Update的param中必须包含where字段');
     }
     if (!param.data) {
-      throw new Error('Update的param中必须包含tableName字段');
+      throw new Error('Update的param中必须包含data字段');
     }
   },
-  // verifyUpdateData(data) {
-
-  // },
+  verifyDeleteParam(param) {
+    if (base.valueType(param) !== 'object') {
+      throw new Error('Delete的param参数必须是一个object');
+    }
+    if (!param.tableName) {
+      throw new Error('Delete的param中必须包含tableName字段');
+    }
+    if (!param.id) {
+      throw new Error('Delete的param中必须包含id字段');
+    }
+  },
+  /**
+   * 校验InsetParam参数
+   * @param {Object} param SelectParam
+   */
+  verifyInsetParam(param) {
+    if (base.valueType(param) !== 'object') {
+      throw new Error('Inset的param参数必须是一个object');
+    }
+    if (!param.tableName) {
+      throw new Error('Inset的param中必须包含tableName字段');
+    }
+    if (!param.data) {
+      throw new Error('Inset的param中必须包含data字段');
+    }
+  },
   verifyColumns(tableName, columns) {
+    console.log(columns);
     columns.forEach(attr => {
       this.verifyColumn(tableName, attr, 'columns');
     });

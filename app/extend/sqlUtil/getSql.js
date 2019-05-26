@@ -3,7 +3,7 @@
  * @Author: zhongshuai
  * @LastEditors: zhongshuai
  * @Date: 2019-02-20 14:03:16
- * @LastEditTime: 2019-03-29 17:32:28
+ * @LastEditTime: 2019-05-24 18:15:23
  */
 
 'use strict';
@@ -46,10 +46,27 @@ module.exports = {
     const sqlWhere = base.getSqlWhere(where, otherName, tableName);
     return `update ${sqlTableName} set ${sqlSet}  where ${sqlWhere}`;
   },
-  // getDeleteSql(tableName, where) {
+  getInsetSqlByParam(param) {
+    verify.verifyInsetParam(param);
+    return this.getInsetSql(param.tableName, param.data || []);
+  },
+  getInsetSql(tableName, data) {
+    const columns = base.getColumnsByData(data, tableName);
+    verify.verifyInset(tableName, data, columns);
+    const sqlTableName = base.getSqlTableName(tableName);
+    const values = base.getSqlValuesInset(data, tableName);
+    const sqlColumns = base.getSqlColumnInset(tableName, columns);
+    return `insert into ${sqlTableName} ( ${sqlColumns} ) values ( ${values} )`;
+  },
 
-  // },
-  // getInsetSql(tableName, data) {
-
-  // },
+  getDeleteSqlByParam(param) {
+    verify.verifyDeleteParam(param);
+    return this.getDeleteSql(param.tableName, param.id);
+  },
+  getDeleteSql(tableName, id) {
+    verify.verifyTableName(tableName);
+    verify.verifyValue(tableName, 'id', id);
+    const sqlTableName = base.getSqlTableName(tableName);
+    return `delete from  ${sqlTableName} where \`id\` = '${id}'`;
+  },
 };
