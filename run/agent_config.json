@@ -85,7 +85,7 @@
       "cookieMaxAge": "1y"
     },
     "watcher": {
-      "type": "default",
+      "type": "development",
       "eventSources": {
         "default": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-watcher@3.1.0@egg-watcher/lib/event-sources/default",
         "development": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-watcher@3.1.0@egg-watcher/lib/event-sources/development"
@@ -94,7 +94,7 @@
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "/Users/zhongshuai/logs/egg-test/egg-schedule.log"
+        "file": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/logs/egg-test/egg-schedule.log"
       }
     },
     "schedule": {
@@ -116,6 +116,13 @@
         "cron": "0 30 4 * * *"
       }
     },
+    "development": {
+      "watchDirs": [],
+      "ignoreDirs": [],
+      "fastReady": false,
+      "reloadOnDebug": true,
+      "overrideDefault": false
+    },
     "logrotator": {
       "filesRotateByHour": null,
       "hourDelimiter": "-",
@@ -130,13 +137,12 @@
       "dir": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/app/public",
       "dynamic": true,
       "preload": false,
-      "buffer": true,
-      "maxFiles": 1000,
-      "maxAge": 31536000
+      "buffer": false,
+      "maxFiles": 1000
     },
     "view": {
       "root": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/app/view",
-      "cache": true,
+      "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
       "mapping": {}
@@ -167,7 +173,7 @@
       "origin": "*",
       "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH"
     },
-    "env": "prod",
+    "env": "local",
     "name": "egg-test",
     "keys": "<String len: 27>",
     "proxy": false,
@@ -185,7 +191,8 @@
         "egg-mysql": "^3.0.0",
         "egg-scripts": "^2.5.0",
         "mongodb": "^3.1.10",
-        "mysql": "^2.16.0"
+        "mysql": "^2.16.0",
+        "mysql-easy-sql": "^1.0.1"
       },
       "devDependencies": {
         "autod": "^3.0.1",
@@ -254,19 +261,21 @@
       }
     },
     "logger": {
-      "dir": "/Users/zhongshuai/logs/egg-test",
+      "dir": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/logs/egg-test",
       "encoding": "utf8",
-      "env": "prod",
+      "env": "local",
       "level": "INFO",
       "consoleLevel": "INFO",
-      "disableConsoleAfterReady": true,
+      "disableConsoleAfterReady": false,
       "outputJSON": false,
       "buffer": true,
       "appLogName": "egg-test-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
-      "coreLogger": {},
+      "coreLogger": {
+        "consoleLevel": "WARN"
+      },
       "allowDebugAtProd": false,
       "type": "agent"
     },
@@ -416,6 +425,21 @@
       "from": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg@2.16.2@egg/config/plugin.js",
       "path": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-multipart@2.4.0@egg-multipart",
       "version": "2.4.0"
+    },
+    "development": {
+      "enable": true,
+      "package": "egg-development",
+      "name": "development",
+      "dependencies": [
+        "watcher"
+      ],
+      "optionalDependencies": [],
+      "env": [
+        "local"
+      ],
+      "from": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg@2.16.2@egg/config/plugin.js",
+      "path": "/Users/zhongshuai/Desktop/work/1-project/study/easy-service/node_modules/_egg-development@2.4.2@egg-development",
+      "version": "2.4.2"
     },
     "logrotator": {
       "enable": true,
